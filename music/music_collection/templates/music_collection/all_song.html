@@ -1,0 +1,28 @@
+
+{% extends 'music_collection/base.html' %}
+{% load static %}
+{% block content %}
+
+  
+<div class="cards-group ml-5">
+  <h3>For Your Listening Pleasure!</h3>
+  <div class="row ">
+    {% for song in songs %}
+    <div class="col-1.6">
+      <div class="card-1" >
+        <img class="card-img-top" src="{% static 'music_collection/arjit.jpg' %}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{song.title}}</h5>
+          <p class="card-text">Some  card's content.</p>
+    
+        </div>
+      </div>
+    </div>
+      {% cycle "" "" ""  %}<br>
+
+    {% endfor %}
+    
+    
+  </div><hr>
+</div>
+{% endblock %}
