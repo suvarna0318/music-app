@@ -16,7 +16,7 @@ h3{
 
 .sidebar {
   height: 85%;
-  width: 240px;
+  width: 220px;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -78,6 +78,7 @@ nav a:hover{
 }
 
 .main-section{
+  color: white;
   width: 83.71%;
   min-height: 100vh;
   
@@ -183,7 +184,7 @@ margin: 40px;
 .volumeSlider{
   height: 4px;
 }
-.fa-play{
+.fa-play,.fa-pause{
   border: 1px solid rgb(255,255,255,0.8);
   border-radius: 50%;
   padding: 12px;
@@ -195,6 +196,14 @@ margin: 40px;
 .playpause-track{
   margin: 0 50px;
 }
-.prev-track,.next-track{
-
+.buttons:hover{
+  
+}
+.prev-track:hover,.next-track:hover,.playpause-track:hover{
+font-size: 15px;
+margin-bottom: 0;
+  color: white ;
+}
+.main-section{
+  color: white;
 }

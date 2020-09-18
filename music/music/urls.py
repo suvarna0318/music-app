@@ -24,7 +24,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/',views.index,name="index"),
     path('songs/',views.song_list,name="song_list"),
-    path('detail/<int:pk>/',views.details,name="details"),
+    path('detail/<int:pk>/',views.details,name="detail"),
+    path('prev_song/<int:pk>/',views.prev_song,name="prev_song"),
+    path('next_song/<int:pk>/',views.next_song,name="next_song"),
     path('album/',views.album,name="album"),
     path('artist/',views.artist,name="artist"),
 ]

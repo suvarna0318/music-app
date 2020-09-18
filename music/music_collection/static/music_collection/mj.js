@@ -1,13 +1,3 @@
-
-function myFunction() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-}
-
 const preBtn=document.querySelector('.prev-track');
 const btnPlayPause=document.querySelector('.playpause-track');
 const nextBtn=document.querySelector('.next-track');
@@ -20,14 +10,14 @@ const search=document.querySelector('.form-control')
 
 
 
-
+/*
 search.addEventListener('input',function(e){
 
 console.log(search.value)
 
 
-})
-
+})*/
+/*
 index=0;
 
 let playList=[{
@@ -45,19 +35,19 @@ let playList=[{
   'name':'saluthilla',
   'artist-name':'priyanka'
   }]
-
+*/
 
 function musicPlay(){
-  audioEle.src=playList[index].id;
+  /*audioEle.src=playList[index].id;*/
   /*name.innerText=playList[index].name;*/
   audioEle.play()
-  btnPlayPause.innerHTML='<i class="fa fa-pause-circle fa-5x">';
+  btnPlayPause.innerHTML='<i class="fa fa-pause">';
   isPlaying=true
 
 }
 function musicPause(){
   audioEle.pause()
-  btnPlayPause.innerHTML='<i class="fa fa-play-circle fa-5x">';
+  btnPlayPause.innerHTML='<i class="fa fa-play">';
   isPlaying=false
 }
 
@@ -70,15 +60,15 @@ btnPlayPause.addEventListener('click',function(){
     musicPlay()
   }
 })
+const para=document.querySelector('.para');
+nextBtn.addEventListener('click',(e)=>{
 
-nextBtn.addEventListener('click',()=>{
-  if (index<playList.length){
-  index+=1;
-  musicPlay()
-  }else{
-    console.log("exceeds limit")
-  }
+location.href="next_song/6";
+
+console.log(url)
 })
+
+
 preBtn.addEventListener('click',()=>{
   if (index>0){
   index-=1;
@@ -97,7 +87,7 @@ function seekTo() {
  
   console.log(seek_slider.value)
   seekto = audioEle.duration * (seek_slider.value / 100); 
-  console.log("will")
+ 
   
   // Set the current track position to the calculated seek position 
   audioEle.currentTime = seekto; 
@@ -136,5 +126,3 @@ function VolumeChange() {
   } 
 } 
 */
-
-
