@@ -24,18 +24,74 @@ h3{
   background:rgb(0,0,0);
   overflow-x: hidden;
   padding-top: 16px;
+
 }
 
 .sidebar a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 15px;
   color: #818181;
   display: block;
 }
 
 .sidebar a:hover {
   color: #f1f1f1;
+  text-decoration: none;
+}
+.sidebar .home{
+  background: #252626;
+  padding: 8px 0;
+  border-radius: 5px;
+  color: rgba(255,255,255,0.889);
+  width: 200px;
+  margin-top: 50px;
+
+}
+.sidebar.search .library{
+  
+  padding: 0px 0;
+  margin: 10px;
+  color: rgba(255,255,255,0.889);
+  width: 200px;
+  
+}
+.fa-search,.fa-home{
+  font-size: 30px;
+  margin: 0 20px;
+}
+.search{
+  margin-left: -15px;
+}
+/*.library{
+  margin-left: 10px;
+}*/
+.lib-icon{
+  font-size: 30px;
+  margin: 0 10px;
+}
+.playlist{
+  font-weight: bolder;
+
+}
+.playlist p{
+  color: rgba(255,255,255,0.889);
+  margin: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+
+}
+.fa-plus,.fa-heart{
+  padding: 10px;
+  margin-right: 10px;
+  background: rgba(255,255,255,0.889);
+}
+.heart{
+  margin:0 0px;
+}
+.fa-heart{
+  background: linear-gradient(120deg,#275487,white);
 }
 
 .main {
@@ -207,3 +263,118 @@ margin-bottom: 0;
 .main-section{
   color: white;
 }
+.reg-form{
+  height: 60vh;
+  width: 40%;
+  margin:5% 30%;
+  font-size: 18px;
+  
+}
+form{
+  border: 1px solid gray;
+  padding: 20px;
+}
+legend{
+  text-align:center;
+  font-weight: bolder;
+  
+}
+form button{
+  background: green;
+  
+  width: 40%;
+  padding: 10px;
+  align-items:center;
+  margin-left: 30%;
+}
+.nav-user{
+  background: transparent;
+  border-radius: 2px;
+  border: 1px solid black;
+}
+
+.dropbtn {
+  background:rgba(97, 99, 98,0.2);
+  color: white;
+  width: 150px;
+  font-size: 16px;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  color: white;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  color: white;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background:rgba(97, 99, 98,0.2);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  align-items:center;
+  color: white;
+ /*s*/
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 10px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 15px;
+}
+
+.dropdown-content a:hover {
+  background-color: transparent;
+  color: white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: transparent;
+}
+.fa-user{
+  font-size: 25px;
+  border-radius: 50%;
+  width: 20px;
+  background: transparent;
+  margin-right: 20px;main-section-detail-img
+  margin-left: -25px;
+  height: 20px;
+  margin-top: 0;
+}
+.main-section-detail{
+  background: linear-gradient(180deg,#6a9188,#3b695e,#31544c);
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+}
+.main-section-detail-img img{
+  height: 300px;
+  width: 350px;
+  margin: 100px;
+
+
+  flex:1;
+}
+.main-section-detail-content h1{
+font-size: 80px;
+font-weight: bold;
+margin-top: 20px;
+}
+.main-section-detail-content{
+  margin-top: 60px;
+  margin-top: 140px;
+}
+.create-playlist{
+  display: hidden;
+}
+

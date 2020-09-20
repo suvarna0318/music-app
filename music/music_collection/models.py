@@ -1,6 +1,15 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
+from django.db.models import Q
+
+
+class Profile(models.Model):
+	user=models.OneToOneField(User,on_delete=models.CASCADE)
+
+	def __str__(self):
+		return self.user.name
+
 GENER_CHOICES=(
 	('Rock','Rock'),
 	('pop','pop'),
@@ -16,6 +25,12 @@ class Artist(models.Model):
 
 	def __str__(self):
 		return self.name
+class SongManager(models.Manager):
+	def search(self, query):
+		lookups=(Q(title__icontains=query)|Q(artists__name__icontains=query))              
+		return self.model.objects.filter(lookups)
+
+
 class Song(models.Model):
     title = models.CharField(max_length=200, verbose_name="Song name")
     cover_img = models.ImageField(upload_to="song_cover_img", blank=False)
@@ -23,6 +38,14 @@ class Song(models.Model):
     genre = models.CharField(max_length=100,choices=GENER_CHOICES)
     artists = models.ForeignKey(Artist,on_delete=models.CASCADE)
 
-
+    objects=SongManager()
     def __str__(self):
     	return self.title
+
+class UserPlaylist(models.Model):
+	playlist_name=models.CharField(max_length=120)
+	song=models.ManyToManyField(Song)
+
+
+	def __str__(self):
+		return self.playlist_name

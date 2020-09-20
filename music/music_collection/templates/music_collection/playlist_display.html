@@ -1,0 +1,11 @@
+
+{% extends 'music_collection/base.html' %}
+{% load static %}
+  {% block content %}
+{% for object in objects %} 
+<a href="{% url 'playlist_songs' object.id %}"><h3>{{object.playlist_name}}</h3></a>
+{% endfor %}
+    
+    
+ 
+  {% endblock %}

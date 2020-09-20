@@ -1,8 +1,21 @@
 
 {% extends 'music_collection/base.html' %}
 {% load static %}
+
   {% block content %}
-    all songs playing
+ <div class="main-section-detail">
+    <div class="main-section-detail-img">
+      <img src="{{song.cover_img.url}}">
+    </div>
+    <div class="main-section-detail-content">
+      <p>PLAYLIST</p>
+      <h1>{{song.title}}</h1>
+      <p>{{song.artist}}</p>
+      <p><span>Likes</span><span>time</span></p>
+    </div>
+  </div>
+
+
   {% endblock %}
 
   {% block bottombar %}
