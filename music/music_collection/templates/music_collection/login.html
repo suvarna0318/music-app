@@ -10,7 +10,7 @@
   	href= "https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> 
 	<title></title>
 </head>
-<body>
+<body >
 	
 	<div class="reg-form">
 		<legend>Login Here</legend>
@@ -19,11 +19,11 @@
 		{% csrf_token %}
 
 	{{form|crispy}}
-	<button>SIGN IN</button>
+	<button style="background:lightblue;">SIGN IN</button>
 	</form>
 	<div class="">
-		<a href=" ">Forget Password ?</a>
-	<h6>Need an account ? <a href="">SIGNUP </a>here</h6>
+		<a href="{% url 'password_reset' %} " >Forget Password ?</a>
+	<h6>Need an account ? <a href="{% url 'register' %}">SIGNUP </a>here</h6>
 	 
 	</div>
 	</div>

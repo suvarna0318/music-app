@@ -11,44 +11,26 @@
 	<title></title>
 </head>
 <body>
-<div class="container-sec">
-<div class="sidebar">
-  <h3> logo Spottiffy</h3>
-  <a href="{% url 'song_list' %}" class="home"><i class="fa fa-home"></i> Home</a>
-  <a href="{% url 'search' %}" class="search"><i class="fa fa-search"></i> Search</a>
-  <a href="{% url 'playlist_display' %}" class="library"><span class="lib-icon mr-4">||\</span>Library</a>
-  <div class="playlist">
-    <p>PLAYLIST</p>
-    <a href="{% url 'playlist_new' %}" class="plus"><i class="fa fa-plus"></i> Create Playlist</a>
-  <a href="#services" class="heart"><i class="fa fa-heart"></i> Liked Songs</a><hr>
-  </div><hr>
-  
-</div>
- <nav class="navbar navbar-expand-sm "> 
-        <div class="sym">
-        <a href=""><i class="fa fa-angle-left fa-2x"></i></a>
-        <a href=""><i class="fa fa-angle-right fa-2x"></i></a>
-        </div>
-        <div class="search-block">
-          <form action="{% url 'search' %}" method="GET">
+
+  <nav class="navbar navbar-expand-sm navbar-fixed-top sticky" style="position:fixed;top:0; width:100%;"> 
+    <div class="sym">
+      <a href=""><i class="fa fa-angle-left fa-2x"></i></a>
+      <a href=""><i class="fa fa-angle-right fa-2x"></i></a>
+    </div>
+    <div class="search-block" >
+      <form action="{% url 'search' %}" method="GET" >
             {% csrf_token %}
-          <input class="form-control col-md-12 mr-sm-12" type="search" name='q' placeholder="Search" aria-label="Search" value={{request.GET.q}}>
-          </form>
-        </div>
-        <ul class="navbar-nav ml-auto"> 
+        <input class="search-cls" type="search" name='q' placeholder="Search" aria-label="Search" value={{request.GET.q}}>
+      </form>
+    </div>
+    <ul class="navbar-nav ml-auto"> 
           {% if user.is_authenticated %}
-          <!-- <li class="nav-logout"> 
+          <li class="nav-logout"> 
                 <a class="nav-link" href="{% url 'logout' %}">Logout</a> 
-            </li> -->
-            <div class="dropdown"> 
-              <button class="dropbtn"><a class="nav-link" href="#"><i class="fa fa-user"></i>{{user.username}}</a></button>
-                <div class="dropdown-content">
-  
-                  <a href="{% url 'register' %}">Profile</a><hr>
-                  <a href="{% url 'logout' %}">Logout</a>
-                </div>
-                 
-            </div>
+            </li>
+            <li class="nav-profile"> 
+                <a class="nav-link" href=""><i class="fa fa-user"></i>{{user.username}}</a> 
+            </li>
 
             {% else %}
             <li class="nav-item"> 
@@ -58,14 +40,28 @@
                 <a class="nav-link" href="{% url 'login' %}">LOGIN</a> 
             </li> 
             {% endif %}   
-        </ul> 
+    </ul> 
 </nav> 
+<aside class="sidebar">
+  <h2> logo Spottiffy</h2>
+  <a href="{% url 'song_list' %}" class="home"><i class="fa fa-home"></i> Home</a>
+  
+  <a href="{% url 'playlist_display' %}" class="library"><span class="lib-icon mr-4">||\</span>Library</a>
+  <div class="playlist">
+    <p>PLAYLIST</p>
+    <a href="{% url 'playlist_new' %}" class="plus"><i class="fa fa-plus"></i> Create Playlist</a>
+  <a href="#services" class="heart"><i class="fa fa-heart"></i> Liked Songs</a><hr>
+  </div><hr>
+  
+</aside>
+ 
 <div class="main-section">
 {%block content %} {% endblock %}
 
 {% block  bottombar %}{% endblock %}
 
 </div>
+
 <script type="text/javascript" src="{% static 'music_collection/mj.js' %}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>

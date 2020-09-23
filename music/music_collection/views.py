@@ -21,14 +21,7 @@ def register(request):
 	return render(request,'music_collection/register.html',context)
 
 
-# def index(request):
-# 	# all_song=Song.objects.all()
-# 	song=Song.objects.get(id=3)
-# 	context={
-# 	# 'songs':all_song,
-# 	'song':song,
-# 	}
-# 	return render(request,'music_collection/all_song.html',context)
+
 
 def song_list(request):
 	all_song=Song.objects.all()

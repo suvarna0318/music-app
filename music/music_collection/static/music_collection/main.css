@@ -1,18 +1,11 @@
 
-
 body{
   margin:0;
   padding: 0;
   overflow-x:hidden;
 
 }
-/* side bar */
-h3{
-  color: white;
-  animation: heading;
-  animation-duration: 3s ease ;
-  animation-fill-mode: forwards;
-}
+
 
 .sidebar {
   height: 85%;
@@ -94,10 +87,6 @@ h3{
   background: linear-gradient(120deg,#275487,white);
 }
 
-.main {
-  margin-left: 160px; /* Same as the width of the sidenav */
-  padding: 0px 10px;
-}
 
 @media screen and (max-height: 450px) {
   .sidebar {padding-top: 15px;}
@@ -106,12 +95,14 @@ h3{
 
 /* end of sidebar */
 
-nav{
+.navbar{
   height: 10%;
   background: rgba(18,18,18,1);
   font-size: 12px;
   font-weight: bold;
-
+   position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 
 }
 .sym{
@@ -133,36 +124,58 @@ nav a:hover{
   font-size: larger;
 }
 
+.search-block form .search-cls{
+  width: 400px;
+  border: none;
+  background: rgba(255,255,255,0.8);
+  padding: 7px;
+  margin-top:10px 0;
+
+}
+.search-block form{
+  background: none;
+  border: none;
+  padding-top: 30px;
+  
+}
+.search-block{
+  margin-top:10px 0;
+}
+
 .main-section{
   color: white;
-  width: 83.71%;
+  width: 85.71%;
   min-height: 100vh;
   
   margin-left: 220px;
+  margin-right: 0;
+  margin-top:60px;
   background: rgba(4,4,3,0.899);
 
+}
+ h3{
+  
+  color: yellow;
+  padding: 20px 0 0 0;
+  margin-bottom: 0;
+}
+h2{
+  color: yellow;
 }
 
 .card{
   padding: 15px;
   
   margin: 15px;
+  background: yellow;
   
 }
-
-.card img{
-  height: 7rem;
-}
-.card-title{
-  font-size: 1rem;
-  font-weight: bold;
-}
-.card-text{
-  font-size: 0.7rem;
-  font-weight: bold;
+.main-section .cards-group{
+  margin-left: 30px ;
+  
 }
 .card-1{
-  margin:10px 10px ! important;
+  margin:-4px 10px 25px 10px ! important;
   /*margin-right: 10px;*/
   padding: 15px;
   background:rgba(97, 99, 98,0.2);
@@ -172,6 +185,7 @@ nav a:hover{
   width: 10rem;
   height:15rem;
   margin-left: 20px;
+  font-size: 12px;
 }
 hr{
   color: gray;
@@ -179,6 +193,12 @@ hr{
 .card-1 img{
 
   height: 120px;
+}
+
+.card-title{
+  color: lightgreen;
+  font-size: 20px;
+  font-weight: normal;
 }
 .bottom-bar{
   height: 15%;
@@ -264,11 +284,15 @@ margin-bottom: 0;
   color: white;
 }
 .reg-form{
-  height: 60vh;
+ 
   width: 40%;
   margin:5% 30%;
   font-size: 18px;
   
+}
+.reg-form button{
+  background: green;
+  border: none;
 }
 form{
   border: 1px solid gray;
@@ -279,6 +303,7 @@ legend{
   font-weight: bolder;
   
 }
+
 form button{
   background: green;
   
@@ -304,53 +329,21 @@ form button{
   color: white;
 }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-  color: white;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background:rgba(97, 99, 98,0.2);
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  align-items:center;
-  color: white;
- /*s*/
-}
-
-.dropdown-content a {
-  color: white;
-  padding: 10px 16px;
-  text-decoration: none;
-  display: block;
-  font-size: 15px;
-}
-
-.dropdown-content a:hover {
-  background-color: transparent;
-  color: white;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown:hover .dropbtn {
-  background-color: transparent;
-}
 .fa-user{
   font-size: 25px;
   border-radius: 50%;
   width: 20px;
   background: transparent;
   margin-right: 20px;main-section-detail-img
-  margin-left: -25px;
+  margin-left: 0px;
   height: 20px;
   margin-top: 0;
 }
+
+.nav-profile,.nav-logout{
+text-align: center;
+}
+
 .main-section-detail{
   background: linear-gradient(180deg,#6a9188,#3b695e,#31544c);
   height: 100vh;
@@ -361,7 +354,6 @@ form button{
   height: 300px;
   width: 350px;
   margin: 100px;
-
 
   flex:1;
 }
@@ -377,4 +369,3 @@ margin-top: 20px;
 .create-playlist{
   display: hidden;
 }
-

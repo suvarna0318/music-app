@@ -2,9 +2,11 @@
 {% extends 'music_collection/base.html' %}
 {% load static %}
   {% block content %}
-    <div class="cards-group ml-5">
-  <h3>For Your Listening Pleasure!</h3>
-  <div class="row ">
+    <div class="cards-group ml-5 m-5 ">
+      
+  <h3 >For Your Listening Pleasure!</h3>
+  <br>
+  <div class="row">
     {% for song in songs %}
     <a href="{% url 'details' song.id %}">
     <div class="col-1.6">
@@ -12,7 +14,7 @@
         <img class="card-img-top" src="{{song.cover_img.url}}" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">{{song.title}}</h5>
-          <p class="card-text">Some  card's content.</p>
+          <p class="card-text">Song By:{{song.artist}}</p>
     
         </div>
       </div>
@@ -25,6 +27,7 @@
     
   </div><hr>
 </div>
+
   {% endblock %}
 
   {% block bottombar %}
