@@ -12,16 +12,21 @@
 </head>
 <body>
 	
-	<div class="reg-form">
+	<div class="playlist-form">
 		<legend>Create New Playlist Here</legend>
+		<i class="fa fa-close" onclick="funoff()"></i>
 	<form action="{% url 'playlist_new' %}" method="POST">
+
+			<input type="text" name="playlist_name" placeholder="name">
 
 		{% csrf_token %}
 
-	{{form|crispy}}
-	<button>create</button>
-	<button>cancel</button>
+	<ul>
+	<li><button class="btn-primary">create</button></li>
+	<!-- <li><button class="btn-danger" onclick="funoff()">close</button></li> -->
+	</ul>
 	</form>
+</div>
 	
 </body>
 </html>

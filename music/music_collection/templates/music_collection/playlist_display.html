@@ -6,6 +6,6 @@
 <a href="{% url 'playlist_songs' object.id %}"><h3>{{object.playlist_name}}</h3></a>
 {% endfor %}
     
-    
+    {% include 'music_collection/bottombar.html' %}
  
   {% endblock %}

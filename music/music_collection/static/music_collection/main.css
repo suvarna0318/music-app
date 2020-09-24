@@ -283,17 +283,16 @@ margin-bottom: 0;
 .main-section{
   color: white;
 }
-.reg-form{
- 
-  width: 40%;
-  margin:5% 30%;
-  font-size: 18px;
-  
-}
-.reg-form button{
+form button{
   background: green;
-  border: none;
+  
+  
+  padding: 10px;
+  align-items:center;
+  margin-left: 30%;
 }
+
+
 form{
   border: 1px solid gray;
   padding: 20px;
@@ -304,14 +303,7 @@ legend{
   
 }
 
-form button{
-  background: green;
-  
-  width: 40%;
-  padding: 10px;
-  align-items:center;
-  margin-left: 30%;
-}
+
 .nav-user{
   background: transparent;
   border-radius: 2px;
@@ -369,3 +361,56 @@ margin-top: 20px;
 .create-playlist{
   display: hidden;
 }
+
+.overit{
+  color: white;
+  width: 100%;
+  
+  display: none;
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+
+}
+.reg-form{
+  width: 50%;
+}
+.playlist-form input{
+  width: 80%;
+  margin-left: 10%;
+  align-items:center;
+  text-align: center;
+  margin-top: 10%;
+}
+.reg-form{
+ 
+  width: 40%;
+  margin:10% 30%;
+  font-size: 18px;
+  
+}
+.playlist-form{
+ 
+  width: 40%;
+  margin:10% 30%;
+  font-size: 18px;
+  
+}
+.fa-close{
+  font-size: 20px;
+  position: fixed;
+  top: 33%;
+  right: 33%;
+  
+}
+.playlist-form button{
+  margin: 50px 150px;
+  padding: 5px;
+  width: 120px;
+  border-radius: 20px;
+  background: none;
+}
+

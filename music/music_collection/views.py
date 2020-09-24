@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Song,Artist,UserPlaylist
 from .forms import RegisterForm,PlaylistCreationForm
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -16,12 +17,7 @@ def register(request):
 	context={
 	'form':u_form,
 	}
-
-
 	return render(request,'music_collection/register.html',context)
-
-
-
 
 def song_list(request):
 	all_song=Song.objects.all()
@@ -38,8 +34,19 @@ def details(request,pk):
 	
 	return render(request,'music_collection/details.html',context)
 def search(request):
-	print("working ",request.GET.get('q'))
+	
 	query=request.GET.get('q')
+	q_list=query.split(" ")
+	print(q_list)
+	ignore_list=['by','and','song','songs']
+	for i in ignore_list:
+		if i in q_list:
+			q_list.remove(i)
+
+	print(q_list)
+
+	query=str(" ".join(q_list))
+	print(query)
 	search_res=Song.objects.search(query)
 	context={
 	'songs':search_res,
@@ -80,33 +87,36 @@ def artist(request):
 	context={
 	'artists':artists,
 	}
-	return render(request,'music_collection/artist_list.html',context)
-
+	return render(request,'music_collection/right_click_menu.html')
+@login_required(login_url='/login/')
 def playlist_new(request):
 	if request.method=='POST':
-		form=PlaylistCreationForm(request.POST)
-		if form.is_valid():
-			title=form.cleaned_data['playlist_title']
-			obj=UserPlaylist.objects.create(playlist_name=title)
+		
+		title=request.POST.get('playlist_name')
+		print(title)
+
+		if title!="":
+			print("context:",title)
+			obj=UserPlaylist.objects.create(playlist_name=title,user=request.user)
 			obj.save()
-			print("show create dplaylist")
+			print("show created playlist")
+			return redirect('playlist_display')
+		else:
+			obj=UserPlaylist.objects.create(playlist_name='NewPlaylist',user=request.user)
+			obj.save()
+			print("show created playlist")
 			return redirect('playlist_display')
 
-	else:
-		form=PlaylistCreationForm()
-	context={
-	'form':form,
-	}
-	return render(request,'music_collection/playlist_new.html',context)
 
-
-
+@login_required(login_url='/login/')
 def playlist_display(request):
-	objects=UserPlaylist.objects.all()
+	objects=UserPlaylist.objects.filter(user=request.user)
+	# print(request.user)
 	context={
 	'objects':objects,
 	}
 	return render(request,'music_collection/playlist_display.html',context)
+@login_required(login_url='/login/')
 def playlist_songs(request,id):
 
 	obj=UserPlaylist.objects.get(pk=id)

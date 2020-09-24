@@ -8,16 +8,9 @@ const seek_slider=document.querySelector('.seek-slider')
 const search=document.querySelector('.form-control')
 
 
-
-
 /*
-search.addEventListener('input',function(e){
-
-console.log(search.value)
 
 
-})*/
-/*
 index=0;
 
 let playList=[{
@@ -126,3 +119,17 @@ function VolumeChange() {
   } 
 } 
 */
+function toggleOverlay(){
+  var overlay = document.getElementById('overlay');
+  var specialBox = document.getElementById('specialBox');
+  overlay.style.opacity = .8;
+  if(overlay.style.display == "block"){
+    overlay.style.display = "none";
+    specialBox.style.display = "none";
+    console.log("wowwwwwwwwww")
+  } else {
+    overlay.style.display = "block";
+    specialBox.style.display = "block";
+    console.log("wowwwwwwwwww")
+  }
+}

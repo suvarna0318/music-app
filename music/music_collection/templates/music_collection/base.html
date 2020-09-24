@@ -11,6 +11,7 @@
 	<title></title>
 </head>
 <body>
+  <div id="overlay"></div>
 
   <nav class="navbar navbar-expand-sm navbar-fixed-top sticky" style="position:fixed;top:0; width:100%;"> 
     <div class="sym">
@@ -49,18 +50,44 @@
   <a href="{% url 'playlist_display' %}" class="library"><span class="lib-icon mr-4">||\</span>Library</a>
   <div class="playlist">
     <p>PLAYLIST</p>
-    <a href="{% url 'playlist_new' %}" class="plus"><i class="fa fa-plus"></i> Create Playlist</a>
+   
+    <a href="#" class="create_playlist" onclick="onfun()"><i class="fa fa-plus"></i> Create Playlist</a>
+    
+
   <a href="#services" class="heart"><i class="fa fa-heart"></i> Liked Songs</a><hr>
+
+  <div class="overit">
+ 
+{% include 'music_collection/playlist_new.html' %}
+</div>
+
   </div><hr>
-  
+
+
 </aside>
+
+
+
  
 <div class="main-section">
+
+
 {%block content %} {% endblock %}
 
 {% block  bottombar %}{% endblock %}
 
 </div>
+<script type="text/javascript">
+function onfun(){
+  document.querySelector('.overit').style.display='block';
+
+}
+function funoff(){
+  document.querySelector('.overit').style.display='none';
+
+}
+
+</script>
 
 <script type="text/javascript" src="{% static 'music_collection/mj.js' %}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
