@@ -13,9 +13,9 @@ class RegisterForm(UserCreationForm):
 		fields=['username','email','password1','password2','phone_num']
 
 
-class PlaylistCreationForm(forms.ModelForm):
-	playlist_title=forms.CharField(max_length=200)
+# class PlaylistCreationForm(forms.ModelForm):
+# 	playlist_title=forms.CharField(max_length=200)
 	
-	class Meta:
-		model=UserPlaylist
-		fields=['playlist_title']
+# 	class Meta:
+# 		model=UserPlaylist
+# 		fields=['playlist_title']

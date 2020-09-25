@@ -15,8 +15,8 @@
 
   <nav class="navbar navbar-expand-sm navbar-fixed-top sticky" style="position:fixed;top:0; width:100%;"> 
     <div class="sym">
-      <a href=""><i class="fa fa-angle-left fa-2x"></i></a>
-      <a href=""><i class="fa fa-angle-right fa-2x"></i></a>
+      <a href="{% url 'prev_song' song.id %}"><i class="fa fa-angle-left fa-2x"></i></a>
+      <a href="{% url 'next_song'  song.id %}"><i class="fa fa-angle-right fa-2x"></i></a>
     </div>
     <div class="search-block" >
       <form action="{% url 'search' %}" method="GET" >
@@ -57,9 +57,13 @@
   <a href="#services" class="heart"><i class="fa fa-heart"></i> Liked Songs</a><hr>
 
   <div class="overit">
- 
+
 {% include 'music_collection/playlist_new.html' %}
 </div>
+<div class="dis-scroll">
+
+
+  </div>
 
   </div><hr>
 

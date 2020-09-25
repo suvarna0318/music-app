@@ -8,7 +8,7 @@
   <br>
   <div class="row">
     {% for song in songs %}
-    <a href="{% url 'details' song.id %}">
+    <a href="{% url 'song_list_with_id' song.id %}">
     <div class="col-1.6">
       <div class="card-1" >
         <img class="card-img-top" src="{{song.cover_img.url}}" alt="Card image cap">
@@ -31,6 +31,7 @@
   {% endblock %}
 
   {% block bottombar %}
+
 <div class="bottom-bar">
   
     <div class="details">
@@ -51,9 +52,9 @@
  
     <div class="center-btn">
     <div class="buttons">
-          <div class="prev-track"><i class="fa fa-step-backward "></i></div>
+          <a href="{% url 'prev_song' song.id %}"><div class="prev-track"><i class="fa fa-step-backward "></i></div></a>
           <div class="playpause-track" ><i class="fa fa-play "></i></div>
-          <div class="next-track"><i class="fa fa-step-forward "></i></div>
+          <a href="{% url 'next_song' song.id %}"><div class="next-track"><i class="fa fa-step-forward "></i></div></a>
     </div>
     <div class="slide-container">
           <div class="current-time">00:00</div>

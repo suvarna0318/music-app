@@ -54,13 +54,21 @@ btnPlayPause.addEventListener('click',function(){
   }
 })
 const para=document.querySelector('.para');
-nextBtn.addEventListener('click',(e)=>{
+
+/*nextBtn.addEventListener('click',(e)=>{
 
 location.href="next_song/6";
 
 console.log(url)
+})*/
+nextBtn.addEventListener('click',()=>{
+  if (index>0){
+  index+=1;
+  musicPlay()
+  }else{
+    console.log("exceeds limit")
+  }
 })
-
 
 preBtn.addEventListener('click',()=>{
   if (index>0){

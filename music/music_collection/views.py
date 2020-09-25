@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import Song,Artist,UserPlaylist
-from .forms import RegisterForm,PlaylistCreationForm
+from .forms import RegisterForm
 from django.contrib.auth.decorators import login_required
 
 
@@ -23,6 +23,16 @@ def song_list(request):
 	all_song=Song.objects.all()
 	context={
 	'songs':all_song,
+	'song':all_song[0],
+	}
+	return render(request,'music_collection/all_song.html',context)
+
+def song_list_with_id(request,id):
+	all_song=Song.objects.all()
+	song=Song.objects.get(id=id)
+	context={
+	'songs':all_song,
+	'song':song,
 	}
 	return render(request,'music_collection/all_song.html',context)
 
@@ -56,23 +66,27 @@ def search(request):
 
 
 def prev_song(request,pk):
+	songs=Song.objects.all()
 	print(pk)
 	pk=pk-1
 	print(pk)
 	song=Song.objects.get(id=pk)
 	context={
+	'songs':songs,
 	'song':song,
 	}
 	
-	return render(request,'music_collection/details.html',context)
+	return render(request,'music_collection/all_song.html',context)
 def next_song(request,pk):
+	songs=Song.objects.all()
 	pk=pk+1
 	song=Song.objects.get(id=pk)
 	context={
+	'songs':songs,
 	'song':song,
 	}
 	
-	return render(request,'music_collection/details.html',context)
+	return render(request,'music_collection/all_song.html',context)
 
 
 def album(request):
